@@ -28,6 +28,9 @@ public class Bank {
 
     public void deleteClient(Customer customer){
     }
+    public boolean isCustomer(Customer customer){
+        return accountBook.containsKey(customer);
+    }
 
     public void updateClient(Customer customer){}
 

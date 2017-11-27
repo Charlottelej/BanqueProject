@@ -2,11 +2,16 @@ package fr.banque;
 
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class BankTest {
 
     @Test
     public void ajouteBienClient(){
-
+    Bank bank = new Bank();
+    Customer marc = new Customer("Marc","Narf", 0101010101, "Boulevard de la villette, 75019 Paris", 40, "Developper","test@test.com");
+    bank.addClient(marc);
+    assertThat(bank.isCustomer(marc)).isTrue();
     }
 
     @Test
