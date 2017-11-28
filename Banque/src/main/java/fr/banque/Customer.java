@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Customer {
     private String lastName;
     private String firstName;
-    private Long phone;
+    private String phone;
     private String adress;
     private int age;
     private LocalDate dateNaissance;
@@ -15,7 +15,7 @@ public class Customer {
     private String job;
     private String mail;
 
-    public Customer(String lastName, String firstName, Long phone, String adress, LocalDate dateNaissance, String lieuNaissance, String job, String mail) {
+    public Customer(String lastName, String firstName, String phone, String adress, LocalDate dateNaissance, String lieuNaissance, String job, String mail) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -43,11 +43,11 @@ public class Customer {
         this.firstName = firstName;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -83,9 +83,7 @@ public class Customer {
         this.mail = mail;
     }
 
-    public void setPhone(Long phone) {
-        this.phone = phone;
-    }
+
 
     public LocalDate getDateNaissance() {
         return dateNaissance;
