@@ -1,13 +1,13 @@
 package fr.banque;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Account {
     private String number;
     private double balance;
-    private Date creationDate;
+    private LocalDate creationDate;
 
-    public Account(String number, double balance, Date creationDate) {
+    public Account(String number, double balance, LocalDate creationDate) {
         this.number = number;
         this.balance = balance;
         this.creationDate = creationDate;
@@ -29,11 +29,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
