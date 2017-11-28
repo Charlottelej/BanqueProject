@@ -57,9 +57,10 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account : " +
-                "number = " + number +
-                ", balance =" + balance +
-                ", creationDate =" + creationDate + "; ";
+        return "Account{" +
+                "number='" + number + '\'' +
+                ", balance=" + balance +
+                ", creationDate=" + creationDate +
+                '}';
     }
 }
