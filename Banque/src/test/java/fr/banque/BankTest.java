@@ -167,12 +167,28 @@ public class BankTest {
     }
 
     @Test
-    public void lieBienComptesAClient(){}
+    public void lieBienComptesAClient(){
+        Bank bank = new Bank();
+        Customer marc = new Customer("Marc","Narf", "0101010101", "Boulevard de la villette, 75019 Paris", DateUtil.parseDate("1990-12-24"),"Limoges","Developper","test@test.com");
+        bank.addClient(marc);
+        Account account = new Account("30B", 150.50, DateUtil.parseDate("2000-12-30"));
+        Account account2 = new Account("5541Z75", 0, LocalDate.now());
+        bank.linkAccountToCustomer(marc, account);
+        bank.linkAccountToCustomer(marc, account2);
+        assertThat(bank.listAccountsByCustomer(marc).contains(account)).isTrue();
+    }
 
 
     @Test
     public void retourneSommeSoldeDesComptesDuClient(){
-
+        Bank bank = new Bank();
+        Customer marc = new Customer("Marc","Narf", "0101010101", "Boulevard de la villette, 75019 Paris", DateUtil.parseDate("1990-12-24"),"Limoges","Developper","test@test.com");
+        bank.addClient(marc);
+        Account account = new Account("30B", 150.50, DateUtil.parseDate("2000-12-30"));
+        Account account2 = new Account("5541Z75", 20, LocalDate.now());
+        bank.addAccount(account, bank.recoverKey(marc));
+        bank.addAccount(account2, bank.recoverKey(marc));
+        assertThat(bank.sumBalanceAllAccountofCustomer(marc)).isEqualTo(170.50);
     }
 
 }

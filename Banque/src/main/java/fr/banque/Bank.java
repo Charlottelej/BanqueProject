@@ -1,7 +1,5 @@
 package fr.banque;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -37,15 +35,7 @@ public class Bank {
         }
         return longKey;
     }
-    public Long recoveryKeyAccounts(Set<Account> accounts){
-        Long longkey = 0L;
-        for(Long idClients : accountBook.keySet()){
-            if(idClients.equals(accounts)){
-                longkey= idClients;
-            }
-        }
-        return longkey;
-    }
+
     public Long recoveryKeyAccounts(Account account){
         Long id = 0L;
         for(Map.Entry<Long, Set<Account>> entry : accountBook.entrySet()){
@@ -140,10 +130,14 @@ public class Bank {
     }
 
     public void linkAccountToCustomer (Customer customer, Account account){
-
+        addAccount(account, recoverKey(customer));
     }
 
+    public double sumBalanceAllAccountofCustomer (Customer customer){
+        return listAccountsByCustomer(customer).stream()
+                .mapToDouble(Account::getBalance)
+                .sum();
+        //throw  new  NotImplementedException();
+    }
 
-    public double sumBalanceAllAccountofCustomer (Customer customer){ throw  new  NotImplementedException();}
-    
 }
